@@ -12,7 +12,7 @@ jobs:
     name: Running Workflow
     steps:       
     - uses: danhellem/github-actions-pullrequest-to-work-item@master
-      env:     
+      with:     
         ado_token: '${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}'       
         ado_organization: 'privatepreview'
         ado_project: 'Agile'
