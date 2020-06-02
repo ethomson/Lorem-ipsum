@@ -1,0 +1,21 @@
+name: Sync PRs to Azure DevOps work item
+
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+    branches:
+      - master
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    name: Running Workflow
+    steps:       
+    - uses: danhellem/github-actions-pullrequest-to-work-item@master
+      env:     
+        ado_token: '${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}'       
+        ado_organization: 'privatepreview'
+        ado_project: 'Agile'
+        ado_wit: 'Pull Request' 
+        ado_new_state: 'New'
+        ado_close_state: 'Closed'       
